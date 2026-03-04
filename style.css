@@ -1,0 +1,90 @@
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body { 
+    margin: 0; 
+    font-family: "PingFang SC", sans-serif; 
+    background-color: #020617; 
+    color: #f1f5f9; 
+    display: flex; 
+    overflow-x: hidden; 
+}
+
+#p5-canvas-container { 
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
+    z-index: -1; pointer-events: none; 
+}
+
+/* 侧边栏 */
+.sidebar { 
+    width: 280px; height: 100vh; 
+    background: rgba(15, 23, 42, 0.75); 
+    backdrop-filter: blur(15px); 
+    border-right: 1px solid rgba(255,255,255,0.1); 
+    position: fixed; padding: 60px 40px; 
+    display: flex; flex-direction: column; 
+}
+.name { font-size: 1.8rem; color: #38bdf8; margin: 0; }
+.id { color: #64748b; font-family: monospace; font-size: 0.9rem; margin: 5px 0 40px; }
+
+.nav-menu { list-style: none; padding: 0; }
+.nav-menu a { 
+    text-decoration: none; color: #94a3b8; font-size: 0.9rem; 
+    display: block; padding: 12px 0; transition: 0.3s; 
+}
+.nav-menu a:hover { color: #38bdf8; padding-left: 10px; }
+
+/* 主内容 */
+.main-content { margin-left: 280px; padding: 80px 8%; width: calc(100% - 280px); }
+section { margin-bottom: 120px; }
+.section-tag { color: #38bdf8; font-family: monospace; font-size: 0.8rem; margin-bottom: 10px; }
+h2 { font-size: 2.2rem; margin-bottom: 40px; border-bottom: 1px solid rgba(56,189,248,0.2); display: inline-block; padding-bottom: 10px; }
+
+.doc-para { line-height: 1.8; font-size: 1.1rem; color: #cbd5e1; }
+.doc-para b { color: #38bdf8; }
+
+/* 视频与作品卡片 */
+.v-card, .m-item { 
+    background: rgba(30, 41, 59, 0.5); 
+    border-radius: 12px; overflow: hidden; 
+    border: 1px solid rgba(255,255,255,0.1); 
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+.v-card:hover, .m-item:hover { 
+    transform: scale(1.05); border-color: #38bdf8; 
+    box-shadow: 0 10px 40px rgba(56, 189, 248, 0.3); 
+}
+
+/* 获奖标注高亮 */
+.highlight-card {
+    border: 1px solid rgba(252, 211, 77, 0.3) !important;
+}
+.award-tag {
+    display: block; color: #fcd34d !important; font-weight: bold; font-size: 0.75rem; margin-top: 5px;
+}
+
+video, img { width: 100%; display: block; }
+.link-area { background: rgba(15, 23, 42, 0.9); padding: 12px; text-align: center; }
+.work-link { color: #38bdf8; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
+
+/* 网格布局 */
+.game-video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.mobile-video-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.masonry-container { column-count: 3; column-gap: 15px; }
+
+.plan-card { background: rgba(56, 189, 248, 0.05); padding: 25px; border-left: 4px solid #38bdf8; margin-bottom: 20px; }
+
+@media (max-width: 1000px) {
+    .sidebar { display: none; }
+    .main-content { margin-left: 0; width: 100%; }
+}
+/* 粘贴在 style.css 末尾 */
+.award-tag {
+    display: block;
+    color: #fcd34d !important;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(252, 211, 77, 0.4);
+}
+.highlight-card { border: 1px solid rgba(252, 211, 77, 0.3) !important; }
+.highlight-card:hover { border-color: #fcd34d !important; }
